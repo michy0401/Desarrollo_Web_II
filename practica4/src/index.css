@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/*** SWIPE LIST OVERRIDES **/
+.swipeable-list-item__leading-actions,
+.swipeable-list-item__trailing-actions {
+    @apply text-white text-lg uppercase font-bold flex justify-center items-center;
+}
+
+.swipeable-list-item__leading-actions {
+    @apply bg-blue-600; /* Color para Actualizar [cite: 708] */
+}
+
+.swipeable-list-item__trailing-actions {
+    @apply bg-pink-600; /* Color para Eliminar [cite: 710] */
+}

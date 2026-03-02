@@ -1,0 +1,29 @@
+import { useContext } from "react"
+import { BudgetStateContext } from "../context/BudgetContext"
+import { ExpenseDetails } from "./ExpenseDetails"
+
+export const ExpenseList = () => {
+    const { expenses, currentCategory } = useContext(BudgetStateContext)
+
+    // 56. Lógica de filtrado: si hay una categoría elegida, filtramos; si no, mostramos todos
+    const filteredExpenses = currentCategory 
+        ? expenses.filter(expense => expense.category === currentCategory) 
+        : expenses
+
+    const isEmpty = filteredExpenses.length === 0
+
+    return (
+        <div className="mt-10 space-y-5">
+            {isEmpty ? (
+                <p className="text-gray-600 text-2xl font-bold">No hay gastos en esta categoría</p>
+            ) : (
+                <>
+                    <p className="text-gray-600 text-2xl font-bold my-5">Listado de gastos.</p>
+                    {filteredExpenses.map((expense) => (
+                        <ExpenseDetails key={expense.id} expense={expense} />
+                    ))}
+                </>
+            )}
+        </div>
+    )
+}
