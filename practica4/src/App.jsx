@@ -7,7 +7,6 @@ import { FilterByCategory } from "./components/FilterByCategory"
 import ExpenseModal from "./components/ExpenseModal"
 
 function App() {
-  // Leemos el estado global para saber si ya hay un presupuesto definido
   const state = useContext(BudgetStateContext)
   const isValidBudget = state.budget > 0
 
@@ -19,18 +18,18 @@ function App() {
         </h1>
       </header>
 
-      {/* Panel principal: Muestra el formulario inicial o el tablero de control */}
+      {}
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
         {isValidBudget ? <BudgetTracker /> : <BudgetForm />}
       </div>
 
-      {/* Sección inferior: Solo aparece si el presupuesto es válido */}
+      {}
       {isValidBudget && (
         <main className="max-w-3xl mx-auto py-10">
-          {/* Paso 56: Agregamos el componente de filtros */}
+          {}
           <FilterByCategory />
           
-          {/* Listado de gastos filtrados y botón para nuevo gasto */}
+          {}
           <ExpenseList />
           <ExpenseModal />
         </main>

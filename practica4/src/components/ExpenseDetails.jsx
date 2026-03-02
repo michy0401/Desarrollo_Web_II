@@ -15,7 +15,7 @@ export const ExpenseDetails = ({ expense }) => {
     const dispatch = useContext(BudgetDispatchContext);
     const categoryInfo = categories.find(cat => cat.id === expense.category);
 
-    // Acción al deslizar de izquierda a derecha (Actualizar)
+
     const leadingAction = () => (
         <LeadingActions>
             <SwipeAction 
@@ -26,7 +26,6 @@ export const ExpenseDetails = ({ expense }) => {
         </LeadingActions>
     );
 
-    // Acción al deslizar de derecha a izquierda (Eliminar) [cite: 731-738]
     const trailingAction = () => (
         <TrailingActions>
             <SwipeAction

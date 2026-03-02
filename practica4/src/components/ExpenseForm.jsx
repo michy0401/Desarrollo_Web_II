@@ -18,7 +18,6 @@ export const ExpenseForm = () => {
     const dispatch = useContext(BudgetDispatchContext)
     const state = useContext(BudgetStateContext)
 
-    // Cargar datos en el formulario si estamos editando
     useEffect(() => {
         if (state.editingId) {
             const editingExpense = state.expenses.filter(currentExpense => currentExpense.id === state.editingId)[0]
@@ -46,17 +45,14 @@ export const ExpenseForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // 1. Validación de campos obligatorios
         if (Object.values(expense).includes('') || expense.amount <= 0) {
             setError('Todos los Campos son Obligatorios')
             return
         }
 
-        // 2. VALIDACIÓN DE PRESUPUESTO: Evitar saldos negativos
         const totalExpenses = state.expenses.reduce((total, exp) => exp.amount + total, 0)
         let availableBudget = state.budget - totalExpenses
 
-        // Si estamos editando, sumamos temporalmente el monto viejo al disponible para comparar bien
         if (state.editingId) {
             const previousAmount = state.expenses.find(exp => exp.id === state.editingId).amount
             availableBudget += previousAmount
@@ -67,14 +63,12 @@ export const ExpenseForm = () => {
             return
         }
 
-        // 3. Guardar o actualizar según corresponda
         if (state.editingId) {
             dispatch({ type: 'update-expense', payload: { expense: { id: state.editingId, ...expense } } })
         } else {
             dispatch({ type: 'add-expense', payload: { expense } })
         }
 
-        // Reiniciar el formulario
         setExpense({
             expenseName: "",
             amount: 0,
@@ -90,7 +84,7 @@ export const ExpenseForm = () => {
                 {state.editingId ? 'Guardar Cambios' : 'Nuevo Gasto'}
             </legend>
 
-            {/* Mostramos el mensaje de error si existe */}
+            {}
             {error && <ErrorMessage>{error}</ErrorMessage>}
 
             <div className="flex flex-col gap-2">

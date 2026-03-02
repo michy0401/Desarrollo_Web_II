@@ -15,7 +15,6 @@ export const budgetReducer = (state, action) => {
             return { ...state, modal: true }
 
         case "close-modal":
-            // 43. Al cerrar el modal, también limpiamos el ID de edición [cite: 786]
             return { 
                 ...state, 
                 modal: false, 
@@ -46,7 +45,6 @@ export const budgetReducer = (state, action) => {
             }
 
         case "update-expense":
-            // 42. Buscamos el gasto por ID y lo reemplazamos con los nuevos datos [cite: 777-785]
             return {
                 ...state,
                 expenses: state.expenses.map(expense => 

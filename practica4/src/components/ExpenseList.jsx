@@ -5,7 +5,6 @@ import { ExpenseDetails } from "./ExpenseDetails"
 export const ExpenseList = () => {
     const { expenses, currentCategory } = useContext(BudgetStateContext)
 
-    // 56. Lógica de filtrado: si hay una categoría elegida, filtramos; si no, mostramos todos
     const filteredExpenses = currentCategory 
         ? expenses.filter(expense => expense.category === currentCategory) 
         : expenses

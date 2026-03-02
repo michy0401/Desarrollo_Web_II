@@ -5,13 +5,12 @@ import { BudgetDispatchContext, BudgetStateContext } from '../context/BudgetCont
 import { ExpenseForm } from './ExpenseForm'
 
 export default function ExpenseModal() {
-    // Leemos si el modal debe estar abierto desde el estado global
     const { modal } = useContext(BudgetStateContext)
     const dispatch = useContext(BudgetDispatchContext)
 
     return (
         <>
-            {/* Botón flotante en la esquina inferior derecha para abrir el modal */}
+            {}
             <div className="fixed right-5 bottom-5 flex items-center justify-center">
                 <button
                     type="button"
@@ -32,7 +31,7 @@ export default function ExpenseModal() {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        {/* Fondo oscuro detrás del modal */}
+                        {}
                         <div className="fixed inset-0 bg-black bg-opacity-75" />
                     </Transition.Child>
 
@@ -48,7 +47,7 @@ export default function ExpenseModal() {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                    {/* Aquí insertamos el formulario de gastos que creamos antes */}
+                                    {}
                                     <ExpenseForm />
                                 </Dialog.Panel>
                             </Transition.Child>
