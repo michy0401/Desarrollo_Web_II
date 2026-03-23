@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Si quieres mantener el fondo gris que hablamos antes: */
+@theme {
+  --color-background: #f9fafb;
+  --color-foreground: #111827;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
